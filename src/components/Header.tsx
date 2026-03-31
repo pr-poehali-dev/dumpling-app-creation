@@ -1,34 +1,44 @@
 import Icon from "@/components/ui/icon";
-import { Page } from "@/data/constants";
 
 interface HeaderProps {
-  cartCount: number;
-  setPage: (page: Page) => void;
+  activeTab: "foryou" | "following";
+  setActiveTab: (tab: "foryou" | "following") => void;
+  transparent?: boolean;
 }
 
-export default function Header({ cartCount, setPage }: HeaderProps) {
+export default function Header({ activeTab, setActiveTab, transparent }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border px-4 py-3 flex items-center justify-between">
-      <div onClick={() => setPage("home")} className="cursor-pointer">
-        <div className="handwritten text-2xl text-primary font-bold leading-none">Бабушкина</div>
-        <div className="text-xs text-muted-foreground font-body tracking-widest uppercase">кухня</div>
-      </div>
-      <div className="flex items-center gap-3">
+    <header className={`fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md z-50 px-4 pt-3 pb-2 flex items-center justify-between ${
+      transparent ? "" : "bg-gradient-to-b from-black/60 to-transparent"
+    }`}>
+      <button className="p-1">
+        <Icon name="Tv" size={22} className="text-white/70" />
+      </button>
+
+      <div className="flex items-center gap-6">
         <button
-          onClick={() => setPage("cart")}
-          className="relative p-2 rounded-full hover:bg-secondary transition-colors"
+          onClick={() => setActiveTab("following")}
+          className={`text-base font-heading font-semibold transition-all ${
+            activeTab === "following" ? "text-white" : "text-white/50"
+          }`}
         >
-          <Icon name="ShoppingBag" size={22} />
-          {cartCount > 0 && (
-            <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-              {cartCount}
-            </span>
-          )}
+          Подписки
+          {activeTab === "following" && <div className="w-8 h-0.5 bg-white rounded-full mx-auto mt-0.5" />}
         </button>
-        <button onClick={() => setPage("profile")} className="p-2 rounded-full hover:bg-secondary transition-colors">
-          <Icon name="User" size={22} />
+        <button
+          onClick={() => setActiveTab("foryou")}
+          className={`text-base font-heading font-semibold transition-all ${
+            activeTab === "foryou" ? "text-white" : "text-white/50"
+          }`}
+        >
+          Для вас
+          {activeTab === "foryou" && <div className="w-8 h-0.5 bg-white rounded-full mx-auto mt-0.5" />}
         </button>
       </div>
+
+      <button className="p-1">
+        <Icon name="Search" size={22} className="text-white/70" />
+      </button>
     </header>
   );
 }

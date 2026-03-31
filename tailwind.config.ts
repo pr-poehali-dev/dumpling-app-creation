@@ -20,9 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'handwritten': ['Caveat', 'cursive'],
-				'display': ['Cormorant Garamond', 'serif'],
 				'body': ['Golos Text', 'sans-serif'],
+				'heading': ['Rubik', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

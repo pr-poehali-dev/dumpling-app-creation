@@ -1,99 +1,96 @@
-export const HERO_IMAGE = "https://cdn.poehali.dev/projects/e71a65ff-0d66-4b51-aef0-ef1c1d52adc9/files/15ac7936-4a62-4159-8ad0-c98d8cac3bda.jpg";
+export type Page = "feed" | "discover" | "create" | "inbox" | "profile";
 
-export const MENU_ITEMS = [
+export interface VideoItem {
+  id: number;
+  author: string;
+  username: string;
+  avatar: string;
+  description: string;
+  music: string;
+  likes: number;
+  comments: number;
+  shares: number;
+  saves: number;
+  image: string;
+  tags: string[];
+}
+
+export interface Comment {
+  id: number;
+  author: string;
+  avatar: string;
+  text: string;
+  likes: number;
+  time: string;
+}
+
+export const VIDEOS: VideoItem[] = [
   {
     id: 1,
-    category: "Позы",
-    name: "Позы классические",
-    desc: "Сочная говядина со свининой, тесто ручной работы",
-    price: 420,
-    weight: "300г / 4 шт",
-    emoji: "🥟",
-    badge: "Хит",
+    author: "Алина Танцует",
+    username: "@alina_dance",
+    avatar: "А",
+    description: "Новый тренд 🔥 Кто повторит? #танцы #тренд #viral",
+    music: "Баста — Выпускной",
+    likes: 14200,
+    comments: 342,
+    shares: 891,
+    saves: 2100,
+    image: "https://cdn.poehali.dev/projects/e71a65ff-0d66-4b51-aef0-ef1c1d52adc9/files/12d7a174-60ce-4156-a5da-0c609f88ab2c.jpg",
+    tags: ["танцы", "тренд"],
   },
   {
     id: 2,
-    category: "Позы",
-    name: "Позы с бараниной",
-    desc: "Нежная баранина с луком и специями по-восточному",
-    price: 480,
-    weight: "300г / 4 шт",
-    emoji: "🥟",
-    badge: null,
+    author: "Кот Барсик",
+    username: "@barsik_cat",
+    avatar: "🐱",
+    description: "Барсик опять выступает 😂 Ставь ❤️ если у тебя тоже такой кот #кот #смешно #домашниеживотные",
+    music: "оригинальный звук — Кот Барсик",
+    likes: 89400,
+    comments: 1203,
+    shares: 4521,
+    saves: 12300,
+    image: "https://cdn.poehali.dev/projects/e71a65ff-0d66-4b51-aef0-ef1c1d52adc9/files/35f595a9-b7cc-487e-be50-ccbbff94766c.jpg",
+    tags: ["кот", "смешно"],
   },
   {
     id: 3,
-    category: "Вареники",
-    name: "Вареники с картошкой",
-    desc: "Картофельное пюре с жареным лучком, сметана в подарок",
-    price: 290,
-    weight: "250г / 8 шт",
-    emoji: "🫔",
-    badge: "Новинка",
-  },
-  {
-    id: 4,
-    category: "Вареники",
-    name: "Вареники с вишней",
-    desc: "Спелая вишня с сахаром, подаются с домашней сметаной",
-    price: 310,
-    weight: "250г / 8 шт",
-    emoji: "🍒",
-    badge: null,
-  },
-  {
-    id: 5,
-    category: "Пельмени",
-    name: "Пельмени домашние",
-    desc: "Фарш три вида мяса, тесто раскатано вручную",
-    price: 350,
-    weight: "350г / 12 шт",
-    emoji: "⭕",
-    badge: "Хит",
-  },
-  {
-    id: 6,
-    category: "Пельмени",
-    name: "Пельмени сибирские",
-    desc: "Говяжий фарш с кедровым орехом, сибирский рецепт",
-    price: 390,
-    weight: "350г / 12 шт",
-    emoji: "⭕",
-    badge: null,
+    author: "Шеф Повар",
+    username: "@chef_master",
+    avatar: "👨‍🍳",
+    description: "Суши за 5 минут 🍣 Сохраняй рецепт! #еда #рецепт #суши #готовимдома",
+    music: "Lofi Chill — Cooking Vibes",
+    likes: 45600,
+    comments: 892,
+    shares: 3210,
+    saves: 28900,
+    image: "https://cdn.poehali.dev/projects/e71a65ff-0d66-4b51-aef0-ef1c1d52adc9/files/62ad2784-7883-4780-b9d7-aec648343c46.jpg",
+    tags: ["еда", "рецепт"],
   },
 ];
 
-export const REVIEWS = [
-  {
-    id: 1,
-    name: "Анна М.",
-    text: "Позы просто восхитительные! Тесто тонкое, начинка сочная. Привезли быстро и горячими.",
-    rating: 5,
-    date: "28 марта",
-  },
-  {
-    id: 2,
-    name: "Дмитрий К.",
-    text: "Заказываю каждую неделю. Пельмени как у бабушки — настоящие, домашние. Рекомендую!",
-    rating: 5,
-    date: "25 марта",
-  },
-  {
-    id: 3,
-    name: "Светлана В.",
-    text: "Вареники с вишней — просто песня! Дети в восторге. Спасибо за домашнюю еду с душой.",
-    rating: 5,
-    date: "20 марта",
-  },
+export const SAMPLE_COMMENTS: Comment[] = [
+  { id: 1, author: "Мария", avatar: "М", text: "Огонь! 🔥🔥🔥", likes: 234, time: "2ч" },
+  { id: 2, author: "Дима", avatar: "Д", text: "Как это вообще возможно?? 😱", likes: 89, time: "3ч" },
+  { id: 3, author: "Катя", avatar: "К", text: "Сохранила, буду повторять!", likes: 156, time: "4ч" },
+  { id: 4, author: "Артём", avatar: "А", text: "Лучший контент в моей ленте", likes: 67, time: "5ч" },
+  { id: 5, author: "Настя", avatar: "Н", text: "Подписалась! Жду ещё 🙏", likes: 45, time: "6ч" },
 ];
 
-export const TRACKING_STEPS = [
-  { id: 1, label: "Принят", icon: "ClipboardCheck", done: true, active: false },
-  { id: 2, label: "Готовим", icon: "ChefHat", done: true, active: false },
-  { id: 3, label: "В пути", icon: "Bike", done: false, active: true },
-  { id: 4, label: "Доставлен", icon: "Home", done: false, active: false },
+export const DISCOVER_TAGS = [
+  "В тренде", "Танцы", "Еда", "Животные", "Юмор", "Спорт", "Музыка", "Красота", "Путешествия", "Лайфхаки"
 ];
 
-export type MenuItem = typeof MENU_ITEMS[0];
-export type CartEntry = { item: MenuItem; qty: number };
-export type Page = "home" | "menu" | "about" | "cart" | "reviews" | "contacts" | "profile" | "history";
+export const NOTIFICATIONS = [
+  { id: 1, type: "like", user: "Мария", text: "понравилось ваше видео", time: "2 мин", avatar: "М" },
+  { id: 2, type: "follow", user: "Дмитрий", text: "подписался на вас", time: "15 мин", avatar: "Д" },
+  { id: 3, type: "comment", user: "Катя", text: "прокомментировала: Круто! 🔥", time: "1 ч", avatar: "К" },
+  { id: 4, type: "like", user: "Артём", text: "понравилось ваше видео", time: "2 ч", avatar: "А" },
+  { id: 5, type: "follow", user: "Настя", text: "подписалась на вас", time: "3 ч", avatar: "Н" },
+];
+
+export function formatNumber(n: number): string {
+  if (n >= 1000000) return (n / 1000000).toFixed(1) + "М";
+  if (n >= 1000) return (n / 1000).toFixed(1) + "К";
+  return n.toString();
+}
